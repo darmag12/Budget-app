@@ -128,15 +128,15 @@ var controller = (function (budgetCtr, uICtr){
         // 5. display the budget on the UI
     }
 
-    // return{
-    //     // method for initializing the application
-    //     init: function (){
-    //         setUpEventListeners();
-    //         console.log('Application has started')
-    //     }
-    // }
+    return{
+        // method for initializing the application
+        init: function (){
+            setUpEventListeners();
+            console.log('Application has started')
+        }
+    }
 
     
 })(budgetController, uIController);
 
-// controller.init();
+controller.init();
