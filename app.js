@@ -46,11 +46,15 @@ var budgetController = (function(){
                 newItem = new Income(ID, des, val);
             }
 
-            // push the new item into our data structure
+            // push the new item into the data structure
             data.allItems[type].push(newItem);
             // return the new element
             return newItem;
         },
+
+        testing: function(){
+            console.log(data)
+        }
 
         
     }
@@ -69,7 +73,9 @@ var uIController = (function(){
         inputType: '.add__type',
         inputDescription: '.add__description',
         inputValue: '.add__value',
-        addBtn: '.add__btn'
+        addBtn: '.add__btn',
+        incomeContainer: '.income__list',
+        expenseContainer: '.expenses__list'
     }
 
     return {
@@ -77,8 +83,40 @@ var uIController = (function(){
             return{
                 type: document.querySelector(domStrings.inputType).value,// will be either inc or exp
                 description: document.querySelector(domStrings.inputDescription).value,
-                value: document.querySelector(domStrings.inputValue).value
+                value: parseFloat(document.querySelector(domStrings.inputValue).value)
             };
+        },
+
+        addListItems: function (obj, type){
+            var html, newHtml, element;
+            // if(type === 'inc'){
+            //     element = document.querySelector(domStrings.incomeContainer);
+            //     // create html string with placeholder text
+            //     html = '<div class="item clearfix" id="income-%id%"><div class="item__description">%description%</div><div class="right clearfix"><div class="item__value">%value%</div><div class="item__delete"><button class="item__delete--btn"><i class="ion-ios-close-outline"></i></button></div></div></div>';
+            // } else if (type === 'exp'){
+            //     element = document.querySelector(domStrings.expenseContainer);
+            //     html = '<div class="item clearfix" id="expense-%id%"><div class="item__description">%description%</div><div class="right clearfix"><div class="item__value">%value%</div><div class="item__percentage">21%</div><div class="item__delete"><button class="item__delete--btn"><i class="ion-ios-close-outline"></i></button></div></div></div>'
+            // }
+            // replace the placeholder text with some actual data
+            newHtml = html.replace('%id%', obj.id);
+            newHtml = newHtml.replace('%description%', obj.description);
+            newHtml = newHtml.replace('%value%', obj.value)
+
+            // insert html into the DOM
+            element.insertAdjacentHTML('beforeend', newHtml);
+        },
+
+        clearField: function (){
+            var fields, fieldsArr;
+
+            fields = document.querySelectorAll(`${domStrings.inputDescription}, ${domStrings.inputValue}`);
+
+            fieldsArr = Array.from(fields);
+            fields.forEach(function(current, index, array){
+                current.value = '';
+            });
+            // this ensures the cusor goes back to the description after a submition
+            fieldsArr[0].focus();
         },
 
         getDomStrings: function (){
@@ -112,6 +150,16 @@ var controller = (function (budgetCtr, uICtr){
         });
     }
 
+    var updateBudget = function (){
+         // 1. calculate the budget 
+
+         // 2. return the budget
+
+        // 3. display the budget on the UI
+
+        
+    }
+
     var ctrAddItem = function (){
         var input, newItem;
         // 1. get the input value on the field
@@ -120,10 +168,13 @@ var controller = (function (budgetCtr, uICtr){
         // 2. add the item to the budget controller
             newItem = budgetCtr.addItem(input.type, input.description, input.value);
         // 3. add the item to the UI
+            uICtr.addListItems(newItem, input.type);
 
-        // 4. calculate the budget 
+        // 4. clear the fields
+            uICtr.clearField()
 
-        // 5. display the budget on the UI
+        // 5. calculate and update budget 
+         updateBudget()
     }
 
     return{
