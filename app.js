@@ -150,15 +150,15 @@ var controller = (function (budgetCtr, uICtr){
         });
     }
 
-    // var updateBudget = function (){
-    //      // 1. calculate the budget 
+    var updateBudget = function (){
+         // 1. calculate the budget 
 
-    //      // 2. return the budget
+         // 2. return the budget
 
-    //     // 3. display the budget on the UI
+        // 3. display the budget on the UI
 
         
-    // }
+    }
 
     var ctrAddItem = function (){
         var input, newItem;
