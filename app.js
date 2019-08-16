@@ -89,21 +89,21 @@ var uIController = (function(){
 
         addListItems: function (obj, type){
             var html, newHtml, element;
-            // if(type === 'inc'){
-            //     element = document.querySelector(domStrings.incomeContainer);
-            //     // create html string with placeholder text
-            //     html = '<div class="item clearfix" id="income-%id%"><div class="item__description">%description%</div><div class="right clearfix"><div class="item__value">%value%</div><div class="item__delete"><button class="item__delete--btn"><i class="ion-ios-close-outline"></i></button></div></div></div>';
-            // } else if (type === 'exp'){
-            //     element = document.querySelector(domStrings.expenseContainer);
-            //     html = '<div class="item clearfix" id="expense-%id%"><div class="item__description">%description%</div><div class="right clearfix"><div class="item__value">%value%</div><div class="item__percentage">21%</div><div class="item__delete"><button class="item__delete--btn"><i class="ion-ios-close-outline"></i></button></div></div></div>'
-            // }
-            // replace the placeholder text with some actual data
-            newHtml = html.replace('%id%', obj.id);
-            newHtml = newHtml.replace('%description%', obj.description);
-            newHtml = newHtml.replace('%value%', obj.value)
+            if(type === 'inc'){
+                element = document.querySelector(domStrings.incomeContainer);
+                // create html string with placeholder text
+                html = '<div class="item clearfix" id="income-%id%"><div class="item__description">%description%</div><div class="right clearfix"><div class="item__value">%value%</div><div class="item__delete"><button class="item__delete--btn"><i class="ion-ios-close-outline"></i></button></div></div></div>';
+            } else if (type === 'exp'){
+                element = document.querySelector(domStrings.expenseContainer);
+                html = '<div class="item clearfix" id="expense-%id%"><div class="item__description">%description%</div><div class="right clearfix"><div class="item__value">%value%</div><div class="item__percentage">21%</div><div class="item__delete"><button class="item__delete--btn"><i class="ion-ios-close-outline"></i></button></div></div></div>'
+            }
+            // // replace the placeholder text with some actual data
+            // newHtml = html.replace('%id%', obj.id);
+            // newHtml = newHtml.replace('%description%', obj.description);
+            // newHtml = newHtml.replace('%value%', obj.value)
 
-            // insert html into the DOM
-            element.insertAdjacentHTML('beforeend', newHtml);
+            // // insert html into the DOM
+            // element.insertAdjacentHTML('beforeend', newHtml);
         },
 
         clearField: function (){
