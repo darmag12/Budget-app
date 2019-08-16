@@ -97,13 +97,13 @@ var uIController = (function(){
                 element = document.querySelector(domStrings.expenseContainer);
                 html = '<div class="item clearfix" id="expense-%id%"><div class="item__description">%description%</div><div class="right clearfix"><div class="item__value">%value%</div><div class="item__percentage">21%</div><div class="item__delete"><button class="item__delete--btn"><i class="ion-ios-close-outline"></i></button></div></div></div>'
             }
-            // // replace the placeholder text with some actual data
-            // newHtml = html.replace('%id%', obj.id);
-            // newHtml = newHtml.replace('%description%', obj.description);
-            // newHtml = newHtml.replace('%value%', obj.value)
+            // replace the placeholder text with some actual data
+            newHtml = html.replace('%id%', obj.id);
+            newHtml = newHtml.replace('%description%', obj.description);
+            newHtml = newHtml.replace('%value%', obj.value)
 
-            // // insert html into the DOM
-            // element.insertAdjacentHTML('beforeend', newHtml);
+            // insert html into the DOM
+            element.insertAdjacentHTML('beforeend', newHtml);
         },
 
         clearField: function (){
@@ -150,15 +150,15 @@ var controller = (function (budgetCtr, uICtr){
         });
     }
 
-    var updateBudget = function (){
-         // 1. calculate the budget 
+    // var updateBudget = function (){
+    //      // 1. calculate the budget 
 
-         // 2. return the budget
+    //      // 2. return the budget
 
-        // 3. display the budget on the UI
+    //     // 3. display the budget on the UI
 
         
-    }
+    // }
 
     var ctrAddItem = function (){
         var input, newItem;
