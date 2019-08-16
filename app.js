@@ -94,49 +94,49 @@ var uIController = (function(){
 
 
 
-// // GLOBAL APP CONTROLLER
-// // controlls the entire app and acts as a link between the above modules
-// var controller = (function (budgetCtr, uICtr){
+// GLOBAL APP CONTROLLER
+// controlls the entire app and acts as a link between the above modules
+var controller = (function (budgetCtr, uICtr){
 
-//     // responsible for all event listeners
-//     var setUpEventListeners = function (){
+    // responsible for all event listeners
+    var setUpEventListeners = function (){
 
-//         // passed the dom strings to the app controller, through getDomStrings() and stored them in the DOM variable.
-//         var DOM = uICtr.getDomStrings();
+        // passed the dom strings to the app controller, through getDomStrings() and stored them in the DOM variable.
+        var DOM = uICtr.getDomStrings();
 
-//         document.querySelector(DOM.addBtn).addEventListener('click', ctrAddItem);
+        document.querySelector(DOM.addBtn).addEventListener('click', ctrAddItem);
 
-//         document.addEventListener('keypress', function(event){
+        document.addEventListener('keypress', function(event){
         
-//             if (event.keyCode === 13 || event.which === 13){
-//                 ctrAddItem()
-//             };
-//         });
-//     }
+            if (event.keyCode === 13 || event.which === 13){
+                ctrAddItem()
+            };
+        });
+    }
 
-//     var ctrAddItem = function (){
-//         var input, newItem;
-//         // 1. get the input value on the field
-//             input = uICtr.getInput()
+    var ctrAddItem = function (){
+        var input, newItem;
+        // 1. get the input value on the field
+            input = uICtr.getInput()
         
-//         // 2. add the item to the budget controller
-//             newItem = budgetCtr.addItem(input.type, input.description, input.value);
-//         // 3. add the item to the UI
+        // 2. add the item to the budget controller
+            newItem = budgetCtr.addItem(input.type, input.description, input.value);
+        // 3. add the item to the UI
 
-//         // 4. calculate the budget 
+        // 4. calculate the budget 
 
-//         // 5. display the budget on the UI
-//     }
+        // 5. display the budget on the UI
+    }
 
-//     return{
-//         // method for initializing the application
-//         init: function (){
-//             setUpEventListeners();
-//             console.log('Application has started')
-//         }
-//     }
+    // return{
+    //     // method for initializing the application
+    //     init: function (){
+    //         setUpEventListeners();
+    //         console.log('Application has started')
+    //     }
+    // }
 
     
-// })(budgetController, uIController);
+})(budgetController, uIController);
 
 // controller.init();
