@@ -63,32 +63,32 @@ var budgetController = (function(){
 
 
 
-// //UI CONTROLLER
-// // takes care of rendering data to the ui
-// var uIController = (function(){
-//     // holds all strings for dom manipulations
-//     var domStrings = {
-//         inputType: '.add__type',
-//         inputDescription: '.add__description',
-//         inputValue: '.add__value',
-//         addBtn: '.add__btn'
-//     }
+//UI CONTROLLER
+// takes care of rendering data to the ui
+var uIController = (function(){
+    // holds all strings for dom manipulations
+    var domStrings = {
+        inputType: '.add__type',
+        inputDescription: '.add__description',
+        inputValue: '.add__value',
+        addBtn: '.add__btn'
+    }
 
-//     return {
-//         getInput: function (){
-//             return{
-//                 type: document.querySelector(domStrings.inputType).value,// will be either inc or exp
-//                 description: document.querySelector(domStrings.inputDescription).value,
-//                 value: document.querySelector(domStrings.inputValue).value
-//             };
-//         },
+    return {
+        getInput: function (){
+            return{
+                type: document.querySelector(domStrings.inputType).value,// will be either inc or exp
+                description: document.querySelector(domStrings.inputDescription).value,
+                value: document.querySelector(domStrings.inputValue).value
+            };
+        },
 
-//         getDomStrings: function (){
-//             return domStrings;
+        getDomStrings: function (){
+            return domStrings;
 
-//         }
-//     }
-// })();
+        }
+    }
+})();
 
 
 
