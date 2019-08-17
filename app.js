@@ -164,17 +164,22 @@ var controller = (function (budgetCtr, uICtr){
         var input, newItem;
         // 1. get the input value on the field
             input = uICtr.getInput()
-        
-        // 2. add the item to the budget controller
-            newItem = budgetCtr.addItem(input.type, input.description, input.value);
-        // 3. add the item to the UI
-            uICtr.addListItems(newItem, input.type);
 
-        // 4. clear the fields
-            uICtr.clearField()
+        if (input.description !== '' && !isNaN(input.value) && input.value > 0){
+            // 2. add the item to the budget controller
+                newItem = budgetCtr.addItem(input.type, input.description, input.value);
+            // 3. add the item to the UI
+                uICtr.addListItems(newItem, input.type);
+    
+            // 4. clear the fields
+                uICtr.clearField()
+    
+            // 5. calculate and update budget 
+             updateBudget()
 
-        // 5. calculate and update budget 
-         updateBudget()
+        } else {
+            alert('Hey please make sure your input fields are not empty and that your value is greater than 0');
+        }
     }
 
     return{
