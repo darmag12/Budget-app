@@ -14,6 +14,14 @@ var budgetController = (function(){
         this.value = value
     }
 
+    var calculateTotal = function (type){
+        var sum = 0;
+        data.totals[type].forEach(function (curr){
+            sum += curr.value;
+        });
+        data.totals[type] = sum;
+    }
+
     var data = {
         allItems: {
             exp: [],
@@ -50,6 +58,10 @@ var budgetController = (function(){
             data.allItems[type].push(newItem);
             // return the new element
             return newItem;
+        },
+
+        calculateBudget: function (){
+            // 1. 
         },
 
         testing: function(){
