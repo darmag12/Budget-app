@@ -134,10 +134,10 @@ var uIController = (function(){
             if(type === 'inc'){
                 element = document.querySelector(domStrings.incomeContainer);
                 // create html string with placeholder text
-                html = '<div class="item clearfix" id="income-%id%"><div class="item__description">%description%</div><div class="right clearfix"><div class="item__value">%value%</div><div class="item__delete"><button class="item__delete--btn"><i class="ion-ios-close-outline"></i></button></div></div></div>';
+                html = '<div class="item clearfix" id="inc-%id%"><div class="item__description">%description%</div><div class="right clearfix"><div class="item__value">%value%</div><div class="item__delete"><button class="item__delete--btn"><i class="ion-ios-close-outline"></i></button></div></div></div>';
             } else if (type === 'exp'){
                 element = document.querySelector(domStrings.expenseContainer);
-                html = '<div class="item clearfix" id="expense-%id%"><div class="item__description">%description%</div><div class="right clearfix"><div class="item__value">%value%</div><div class="item__percentage">21%</div><div class="item__delete"><button class="item__delete--btn"><i class="ion-ios-close-outline"></i></button></div></div></div>'
+                html = '<div class="item clearfix" id="exp-%id%"><div class="item__description">%description%</div><div class="right clearfix"><div class="item__value">%value%</div><div class="item__percentage">21%</div><div class="item__delete"><button class="item__delete--btn"><i class="ion-ios-close-outline"></i></button></div></div></div>'
             }
             // replace the placeholder text with some actual data
             newHtml = html.replace('%id%', obj.id);
@@ -247,7 +247,20 @@ var controller = (function (budgetCtr, uICtr){
     }
 
     var ctrDeleteItem = function (event){
-        console.log(event.target.parentNode);
+        var itemID, splitID, type, ID;
+       itemID = event.target.parentNode.parentNode.parentNode.parentNode.id;
+       if (itemID){
+           // the split method splits strings into individual items in an array
+            splitID = itemID.split('-');
+            type = splitID[0];
+            ID = splitID[1];
+           // delete the item from the data structure
+
+           // delete the item from the UI
+
+           // update and show the new budget
+       }
+       
     }
 
     return{
