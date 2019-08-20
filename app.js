@@ -113,6 +113,11 @@ var budgetController = (function(){
 
 
 
+//==========================================================================================//
+
+
+
+
 
 //UI CONTROLLER
 // takes care of rendering data to the ui
@@ -160,6 +165,12 @@ var uIController = (function(){
             element.insertAdjacentHTML('beforeend', newHtml);
         },
 
+        deleteListItems: function (selectorID){
+            var el;
+            el = document.getElementById(selectorID);
+            el.parentNode.removeChild(el);
+        },
+
         clearField: function (){
             var fields, fieldsArr;
 
@@ -196,6 +207,11 @@ var uIController = (function(){
         }
     }
 })();
+
+
+
+
+//===========================================================================================//
 
 
 
@@ -265,7 +281,7 @@ var controller = (function (budgetCtr, uICtr){
            // the split method splits strings into individual items in an array
             splitID = itemID.split('-');
             type = splitID[0];
-            ID = splitID[1];
+            ID = parseInt(splitID[1]);
            // delete the item from the data structure
            budgetCtr.deleteItem(type, ID);
 
@@ -281,6 +297,7 @@ var controller = (function (budgetCtr, uICtr){
         init: function (){
             setUpEventListeners();
             console.log('Application has started')
+            // resets everything to 0
             uICtr.displayBudget({
                 budget: 0,
                 percentage: -1,
