@@ -260,7 +260,7 @@ var controller = (function (budgetCtr, uICtr){
 
            // update and show the new budget
        }
-       
+       console.log(itemID)
     }
 
     return{
