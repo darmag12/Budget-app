@@ -24,8 +24,8 @@ body {
 }
 
 .right { float: right; }
-.red { color: #FF5049 !important; }
-.red-focus:focus { border: 1px solid #FF5049 !important; }
+.red { color: #FF5049 !important; transition: ease-in-out .5s;}
+.red-focus:focus { border: 1px solid #FF5049 !important; transition: ease-in-out .5s;}
 
 /**********************************************
 *** TOP PART
